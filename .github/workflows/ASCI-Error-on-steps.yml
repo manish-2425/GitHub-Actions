@@ -1,0 +1,20 @@
+name: 3rd Workflow
+
+on: push
+
+jobs:
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: checkout Repo
+          uses: actions/checkout@v4
+
+        - name: Install ASCII program
+          run: sudo apt-get install cowsay -y
+        - name: Multiline command
+          run: |
+             cowsay -f dragon "Run for Cover, I am DRAGON....ROAR">> dragon.txt
+             grep -i "dragon" dragon.txt
+             echo "Hello Guys, I am at Google Now"
+             ls -lrth
+             cat dragon.txt
